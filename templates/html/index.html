@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <html lang="en">
+  <head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="original tutorial by Dave Gray, content rebuilt by Rascus using VSCodeand and chatGPT4">
+    <meta name="description" content="The Little Taco Shop landing page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Tacos</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .no-border {
+            border: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        select {
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+
+    <title="Welcome to The Little Taco Shop"></title>
+  </head>
+  <body>
+    <section id="welcome">
+    <h1>Welcome to The Little Taco Shop</h1>
+    
+   &bull;&nbsp;&nbsp;<a href="#about">About LTS</a>
+   <br> 
+   &bull;&nbsp;&nbsp;<a href="#menu">Our Menu</a>
+   <br>  
+   &bull;&nbsp;&nbsp;<a href="hours.html">Store Hours</a>
+   <br>  
+   &bull;&nbsp;&nbsp;<a href="contact.html">Contact Us</a>
+  <br>
+
+
+  <br>
+    <a href="/img/tacos_and_drink_400x267.png">
+    <img src="/img/tacos_and_drink_400x267.png" height="400">
+    </a>
+    <p>Tacos and a Drink</p>
+    <hr>
+        
+    <Section id="about">
+    <h2>About LTS</h2>
+    <p>LTS was founded in 2022. Our shop was built from a **love of tacos**.
+    <a href="/img/taco_2061199.png"></a>
+    <img src="/img/taco_2061199.png" height="80">
+    </a>
+    <a href="/img/taco_2061199.png"></a>
+    <img src="/img/taco_2061199.png" height="80">
+    </a>
+    <a href="/img/taco_2061199.png"></a>
+    <img src="/img/taco_2061199.png" height="80">
+    </a>We hope our shop adds a unique and interesting place to our little town.</p>
+    <a href="https://www.freepik.com/search">Taco Emoji Icon by tulpahn</a>
+    <h3>Taco Trivia</h3>
+    
+    <aside>
+	<h3>Dave Gray's Taco Trivia</h3>
+	<details>
+		<summary>When did tacos first appear in the United States></summary>
+		     <p>
+                        Jeffrey M. Pilcher, taco historian and professor of history at the University of Minnesota, says
+                        the earliest mention of tacos in the United States are in a newspaper from <time
+                            datetime="1905">1905</time>. (Source: <cite><a
+                                href="https://www.smithsonianmag.com/arts-culture/where-did-the-taco-come-from-81228162/"
+                                target="_blank">Smithsonian Magazine</a></cite>)
+                    </p>
+	</details>
+</aside>
+<br>    
+<label for="trivia-questions">Choose a trivia question:</label>
+<br>
+<br>
+<select id="trivia-questions">
+    <option value="">Select a question</option>
+    <option value="q1">What is the most popular taco in the United States?</option>
+    <option value="q2">What is the most popular taco in Mexico?</option>
+    <option value="q3">When did tacos first appear in the United States?</option>
+</select>
+
+<div id="answers" style="display: none;">
+    <label for="answer-options">Select your answer:</label>
+    <select id="answer-options">
+        <option value="">Select an answer</option>
+    </select>
+</div>
+
+<!-- Add trivia answer button -->
+<button id="trivia-answer" style="display: none;">Submit Answer</button>
+<br>
+
+<!-- Get trivia question response -->
+<p id="trivia-response"></p>
+
+<script>
+    const triviaSelect = document.getElementById('trivia-questions');
+    const answersDiv = document.getElementById('answers');
+    const answerOptions = document.getElementById('answer-options');
+    const triviaResponse = document.getElementById('trivia-response');
+    const triviaAnswer = document.getElementById('trivia-answer');
+
+    triviaSelect.addEventListener('change', function() {
+        if (this.value) {
+            answersDiv.style.display = 'block';
+            triviaAnswer.style.display = 'none'; // Hide button initially
+            answerOptions.selectedIndex = 0;
+
+            // Change answer options based on the selected question
+            if (this.value === 'q1') {
+                answerOptions.innerHTML = `
+                    <option value="">Select an answer</option>
+                    <option value="a1">beef taco</option>
+                    <option value="a2">classic crunchy taco</option>
+                    <option value="a3">breakfast tacos</option>
+                `;
+            } else if (this.value === 'q2') {
+                answerOptions.innerHTML = `
+                    <option value="">Select an answer</option>
+                    <option value="a1">taco al pastor</option>
+                    <option value="a2">tacos de barbacoa</option>
+                    <option value="a3">tacos de pollo</option>
+                `;
+            } else if (this.value === 'q3') {
+                answerOptions.innerHTML = `
+                    <option value="">Select an answer</option>
+                    <option value="a1">Early 1800s</option>
+                    <option value="a2">Late 1800s</option>
+                    <option value="a3">Early 1900s</option>
+                `;
+            }
+        } else {
+            answersDiv.style.display = 'none';
+            triviaResponse.textContent = '';
+            triviaAnswer.style.display = 'none'; // Hide button
+        }
+    });
+
+    answerOptions.addEventListener('change', function() {
+        if (this.value) {
+            triviaAnswer.style.display = 'block'; // Show button
+            // Check for correct answers based on selected question
+            if ((triviaSelect.value === 'q1' && this.value === 'a2') || 
+                (triviaSelect.value === 'q2' && this.value === 'a1') || 
+                (triviaSelect.value === 'q3' && this.value === 'a3')) {
+                triviaResponse.textContent = 'Correct!';
+            } else {
+                triviaResponse.textContent = 'Incorrect, try again.';
+            }
+        } else {
+            triviaResponse.textContent = '';
+            triviaAnswer.style.display = 'none'; // Hide button
+        }
+    });
+
+    triviaAnswer.addEventListener('click', function() {
+        const selectedAnswer = answerOptions.value;
+        if (selectedAnswer) {
+            alert(triviaResponse.textContent);
+        } else {
+            alert('Please select an answer.');
+        }
+    });
+</script>
+<!-- end trivia list -->
+
+    </Section>
+    <hr>
+
+    <section id="menu">
+    <h2>Our Menu</h2>
+    
+    <br>
+        <table>
+        <tr>
+            <td class="border" colspan="3"><strong>Our Tacos</strong></td>
+        </tr>
+        <tr>
+            <th>Tacos</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Crunchy</td>
+            <td>1</td>
+            <td>$1.50</td>
+        </tr>
+        <tr>
+            <td>Crunchy</td>
+            <td>2</td>
+            <td>$2.50</td>
+        </tr>
+        <tr>
+            <td>Crunchy</td>
+            <td>3</td>
+            <td>$3.25</td>
+        </tr>
+        <tr>
+            <td>Soft</td>
+            <td>1</td>
+            <td>$2.00</td>
+        </tr>
+        <tr>
+            <td>Soft</td>
+            <td>2</td>
+            <td>$3.50</td>
+        </tr>
+        <tr>
+            <td>Soft</td>
+            <td>3</td>
+            <td>$4.50</td>
+        </tr>
+        <tr>
+            <td class="border" colspan="3">Chips & Salsa $2</td>
+        </tr>
+    </table>
+
+  
+    <br>
+
+
+    <a href="#welcome">Back_to_Top</a>
+
+    </section>
+
+    <hr>
+  
+    <p>&copy; The Little Taco Shop</p>
+    
+  </body>
+</html>

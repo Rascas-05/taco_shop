@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="original tutorial Dave Gray, content rebuilt by Rascus using VSCode and chatGPT4">
+    <meta name="description" content="The Little Taco Shop Contact form">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #hours {
+            margin: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .contact-frame {
+            width: 100%;
+            height: 50vh;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        h1, h2 {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 33%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .send-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .reset-button {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <section id="hours">
+        <h1>Contact Us</h1>
+        &bull;&nbsp;&nbsp;<a href="index.html">Home</a><br>
+        &bull;&nbsp;&nbsp;<a href="index.html#about">About LTS</a><br>
+        &bull;&nbsp;&nbsp;<a href="index.html#menu">Our Menu</a><br>
+        &bull;&nbsp;&nbsp;<a href="hours.html">Store Hours</a><br>
+    </section>
+    
+    <br>
+    <a href="/img/tacos_close_up_400x260.png">
+        <img src="/img/tacos_close_up_400x260.png" height="400">
+    </a>
+    <br>
+    
+    <h5>Little Tacos Shop Tacos</h5>
+
+    <section id="contact-form">
+    <h2>Our Contact Form</h2>
+    <div class="contact-frame">
+        <h5 style="position: absolute; top: 0px; left: 20px; margin: 0;">Send Us a Message</h5>
+        <form action="https://httpbin.org/post" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Type your name here..." required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Type your email here..." required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+            <button type="submit" class="send-button">Send</button>
+            <button type="reset" class="reset-button">Reset</button>
+        </form>
+    </div>
+    </section>
+
+    <section id="location">
+        <h2>Our Location</h2>
+        <p><em>555 Taco Temptation Lane, Suite T</em></p>
+        <p><em>Kansas City, MO 55555-5555</em></p>
+        <p><em>Phone: 555-555-5555</em></p>
+        <p><em>Phone: <a href="tel:5555555555">555-555-5555</a></em></p>
+    </section>
+    
+    <hr> 
+    <a href="#contact">Back to Top</a>
+    <p>&copy; The Little Taco Shop</p>
+</body>
+</html>
